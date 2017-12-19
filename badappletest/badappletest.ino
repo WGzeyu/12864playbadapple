@@ -9,7 +9,7 @@ void setup() {
 }
 void loop() {
   short weishu = 0;
-  if(Serial.available()==704) //88*64/8=704
+  if(Serial.available()==704) //88*64/8=704 注意！编译前需将串口缓冲区改为706字节
   {
     while (Serial.available()>0)  
     {
