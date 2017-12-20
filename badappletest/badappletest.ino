@@ -4,7 +4,7 @@
 U8G2_ST7920_128X64_1_HW_SPI u8g2(U8G2_R0,10,8); //左到右 13 11 10(CS) 8(不用接)
 uint8_t apple[704] = {};
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(2000000,SERIAL_8O1);
   u8g2.begin();
 }
 void loop() {
@@ -23,9 +23,12 @@ void loop() {
         } while (u8g2.nextPage());
       }
     }
+    //Serial.flush();
+    while(Serial.read()>= 0){}
   }
   else if(Serial.available()>704)
   {
-    Serial.flush();
+    //Serial.flush();
+    while(Serial.read()>= 0){}
   }
 }
